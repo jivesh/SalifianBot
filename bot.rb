@@ -1,5 +1,6 @@
 require 'telegram_bot'
-token = '1072308907:AAHDbj1x3pGFfcZIA9OvjI5tUjPLX9mRBqE'
+require './secret.rb'
+token = TELEGRAM_API_TOKEN
 bot = TelegramBot.new(token: token)
 
 bot.get_updates(fail_silently: true) do |message|
