@@ -16,23 +16,25 @@ bot.get_updates(fail_silently: true) do |message|
     when /help/i
       reply.text = "See ah #{message.from.first_name}, when life gets me down, I watch my favorite band here https://youtu.be/pBuZEGYXA6E"
     when /supportme/i
-      if message.from.username == "@bitheway"
+      if message.from.username == 'bitheway'
         reply.text = "I think that's an apt claim and a responsible answer! Great job Calire!"
       else
         reply.text = "I think that's an apt claim and a responsible answer! Great job #{message.from.first_name}!"
       end
-    when /lynch/i
-      reply.text = "I think ah we should lynch pearl"
     when /real/i
       reply.text = "Bot salifian is the only valid salifian"
-    when /lynch_beta_test/i
-      if message.from.username == :@pearlkx
-        reply.text = "yes lynch #{message.from.first_name}"
+    when /lynch/i
+      if message.from.username == 'pearlkx'
+        reply.text = "Of course ah lynch #{message.from.first_name}"
       else
-        reply.text = "No la I wouldn't lynch #{message.from.first_name}"
+        reply.text = "No la I wouldn't lynch #{message.from.first_name}, I think ah we should only lynch pearl"
       end
     else
-      reply.text = "Upz la #{message.from.first_name}"
+      reply.text = if message.from.username == 'Salifian'
+        "No upz for you #{message.from.first_name}"
+      else
+        "Upz la #{message.from.first_name}"
+      end
     end
     puts "sending #{reply.text.inspect} to @#{message.from.username}"
     reply.send_with(bot)
