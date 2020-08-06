@@ -6,7 +6,6 @@ bot = TelegramBot.new(token: token)
 bot.get_updates(fail_silently: true) do |message|
   puts "@#{message.from.username}: #{message.text}"
   command = message.get_command_for(bot)
-
   message.reply do |reply|
     case command
     when /start/i
@@ -29,6 +28,8 @@ bot.get_updates(fail_silently: true) do |message|
       else
         reply.text = "No la I wouldn't lynch #{message.from.first_name}, I think ah we should only lynch pearl"
       end
+    when /contribute/i
+      reply.text = "Feel free to contribute to SalifianBot here - https://github.com/jivesh/SalifianBot"
     else
       reply.text = if message.from.username == 'Salifian'
         "No upz for you #{message.from.first_name}"
