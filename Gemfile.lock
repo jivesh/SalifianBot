@@ -12,10 +12,22 @@ GEM
     equalizer (0.0.11)
     excon (0.76.0)
     ice_nine (0.11.2)
+    mustermann (1.1.1)
+      ruby2_keywords (~> 0.0.1)
+    rack (2.2.3)
+    rack-protection (2.1.0)
+      rack
+    ruby2_keywords (0.0.5)
+    sinatra (2.1.0)
+      mustermann (~> 1.0)
+      rack (~> 2.2)
+      rack-protection (= 2.1.0)
+      tilt (~> 2.0)
     telegram_bot (0.0.8)
       excon (>= 0.30.0)
       virtus (>= 1.0.0)
     thread_safe (0.3.6)
+    tilt (2.0.10)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -26,7 +38,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  sinatra
   telegram_bot
 
 BUNDLED WITH
-   2.1.4
+   2.2.3

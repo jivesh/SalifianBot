@@ -2,7 +2,6 @@ require 'telegram_bot'
 require './secret.rb'
 token = TELEGRAM_API_TOKEN
 bot = TelegramBot.new(token: token)
-
 bot.get_updates(fail_silently: true) do |message|
   puts "@#{message.from.username}: #{message.text}"
   command = message.get_command_for(bot)
@@ -37,7 +36,7 @@ bot.get_updates(fail_silently: true) do |message|
         "Upz la #{message.from.first_name}"
       end
     end
-    puts "sending #{reply.text.inspect} to @#{message.from.username}"
     reply.send_with(bot)
+    puts "sending #{reply.text.inspect} to @#{message.from.username}"
   end
 end
